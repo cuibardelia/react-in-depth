@@ -45,6 +45,7 @@ export function Login() {
     }).then((res) => res.json());
 
     if (typeof data !== 'object') {
+      // TODO: modal for server error
       setServerError(data);
       return;
     }
@@ -53,11 +54,13 @@ export function Login() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(handleSubmit)} noValidate>
-        <Input name="email" type="email" labelText="Email" />
-        <Input name="password" type="password" labelText="Password" />
-        <FormButton className="bg-purple-800">Sign In</FormButton>
-      </form>
+      <div className="w-7/12 m-auto">
+        <form onSubmit={methods.handleSubmit(handleSubmit)} noValidate>
+          <Input name="email" type="email" labelText="Email" />
+          <Input name="password" type="password" labelText="Password" />
+          <FormButton className="bg-purple-800">Sign In</FormButton>
+        </form>
+      </div>
     </FormProvider>
   );
 }

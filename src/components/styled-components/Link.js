@@ -1,13 +1,17 @@
-import { Link as RouterLink } from 'react-router-dom';
-import clsx from 'clsx';
+import {NavLink} from 'react-router-dom';
 
+// TODO: className
 export function Link({ children, className, ...props }) {
   return (
-    <RouterLink
-      className={clsx('text-cyan-600 hover:underline', className)}
+    <NavLink
+      className={({ isActive }) =>
+          `inline-block hover:underline py-2 pr-2 ${
+              isActive && 'text-cyan-200'
+          }`
+      }
       {...props}
     >
       {children}
-    </RouterLink>
+    </NavLink>
   );
 }

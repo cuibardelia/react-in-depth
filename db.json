@@ -1,3 +1,18 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "dddd@fff.com",
+      "password": "$2a$10$DISUbRurNU.kndogdmHM3eLbhy8Ek55gVbaZGLWOlTWMbZbFyjOFm",
+      "fName": "dddddd",
+      "lName": "dddddd",
+      "id": 1
+    },
+    {
+      "email": "ffff@fff.mm",
+      "password": "$2a$10$bEEgamJvkXiQYlCJzsRqw.vIynaI7mJh2zGQTRJLmbz9UqUqhRyk6",
+      "fName": "ffffff",
+      "lName": "ffffff",
+      "id": 2
+    }
+  ]
 }

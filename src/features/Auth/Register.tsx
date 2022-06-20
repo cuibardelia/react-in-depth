@@ -63,19 +63,21 @@ export function Register() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <Input name="email" type="email" labelText="Email" />
-        <Input name="password" type="password" labelText="Password" />
-        <Input
-          name="password_check"
-          type="password"
-          labelText="Retype Password"
-        />
-        <Input name="fName" type="text" labelText="First Name" />
-        <Input name="lName" type="text" labelText="Last Name" />
+      <div className="w-7/12 m-auto">
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <Input name="email" type="email" labelText="Email" />
+          <Input name="password" type="password" labelText="Password" />
+          <Input
+            name="password_check"
+            type="password"
+            labelText="Retype Password"
+          />
+          <Input name="fName" type="text" labelText="First Name" />
+          <Input name="lName" type="text" labelText="Last Name" />
 
-        <FormButton className="bg-purple-800">Register</FormButton>
-      </form>
+          <FormButton className="bg-purple-800">Register</FormButton>
+        </form>
+      </div>
     </FormProvider>
   );
 }
