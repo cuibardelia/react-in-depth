@@ -1,4 +1,4 @@
-import {AnonymousLayout, LoggedLayout, QuizLayout} from 'components/layouts';
+import {AnonymousLayout, LoggedLayout, QuizLayout} from 'layouts';
 import {Login, Register} from 'features/Auth';
 import { AuthContextProvider } from 'features/Auth/Auth.context';
 import { Route, Routes } from 'react-router-dom';
@@ -11,12 +11,15 @@ import {CreateQuiz} from "./components/Pages/CreateQuiz";
 
 
 function App() {
+
+    // TODO: stories for all components - inputs, buttons, logo,
+    // TODO: create nav
   return (
     <AuthContextProvider>
       <Menu />
           <Routes>
-            <Route element={<AnonymousLayout />}>
-                <Route path="/" element={<Login />} />
+            <Route  path="/" element={<AnonymousLayout />}>
+                <Route index element={<Login />} />
                 <Route path="register" element={<Register />} />
             </Route>
               <Route element={<LoggedLayout />}>

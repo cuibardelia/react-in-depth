@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { Navigate, useLocation } from 'react-router-dom';
+import {Navigate, useLocation} from 'react-router-dom';
 import { IAuthData, useAuthContext } from './Auth.context';
-import { Input, FormButton } from 'components';
+import {Button, Input} from 'components';
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import {RegularLink} from "../../components/styled-components";
 
 type FormData = {
   email: string;
@@ -52,13 +53,16 @@ export function Login() {
     login(data);
   }
 
+  // TODO: Link component
+
   return (
     <FormProvider {...methods}>
       <div className="w-7/12 m-auto">
         <form onSubmit={methods.handleSubmit(handleSubmit)} noValidate>
-          <Input name="email" type="email" labelText="Email" />
+          <Input name="email" type="email" labelText="QEmail" />
           <Input name="password" type="password" labelText="Password" />
-          <FormButton className="bg-purple-800">Sign In</FormButton>
+          <div className={"text-right mb-6"}>Already got an account? <RegularLink to={"/register"}>Register here</RegularLink></div>
+          <Button className="bg-purple-800">Sign In</Button>
         </form>
       </div>
     </FormProvider>
