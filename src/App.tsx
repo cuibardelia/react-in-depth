@@ -3,7 +3,6 @@ import {Login, Register} from 'features/Auth';
 import { AuthContextProvider } from 'features/Auth/Auth.context';
 import { Route, Routes } from 'react-router-dom';
 import {NotFound} from "./components/Pages/NotFound";
-import {Landing} from "./components/Pages/Landing";
 import {Menu} from "./components/Menu";
 import {Quizzes} from "./components/Pages/Quizzes";
 import {Quiz} from "./components/Pages/Quiz";
@@ -23,7 +22,6 @@ function App() {
                 <Route path="register" element={<Register />} />
             </Route>
               <Route element={<LoggedLayout />}>
-                    <Route path="/dashboard" element={<Landing />} />
                     <Route path="/quizzes" element={<QuizLayout />}>
                         <Route index element={<Quizzes />} />
                         <Route path=":quizId" element={<Quiz />} />

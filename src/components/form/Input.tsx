@@ -35,9 +35,10 @@ export function Input({
           id={name}
           {...register(name)}
         />
-        {errors[name] && (
+        {errors?.[name] && (
           <span className="text-red-800">
-            {errors[name].message}
+            {/*{errors[name]?.message}*/}
+            {'FIXME'}
           </span>
         )}
       </div>

@@ -6,7 +6,7 @@ export function Link({ children, className, ...props }) {
     <NavLink
       className={({ isActive }) =>
           `inline-block hover:underline py-2 pr-2 ${
-              isActive && 'text-cyan-200'
+              isActive && 'underscore'
           }`
       }
       {...props}

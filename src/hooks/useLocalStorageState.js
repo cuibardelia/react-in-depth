@@ -6,7 +6,7 @@ function updateStorage(key, value) {
   }
 }
 
-function retriveFromStorage(key) {
+function retrieveFromStorage(key) {
   if (window?.localStorage) {
     const val = window.localStorage.getItem(key);
 
@@ -20,7 +20,7 @@ function retriveFromStorage(key) {
 
 export function useLocalStorageState(key, initialState) {
   const [state, setState] = useState(() => {
-    const val = retriveFromStorage(key);
+    const val = retrieveFromStorage(key);
 
     if (val !== null) {
       return val;

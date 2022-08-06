@@ -1,3 +1,0 @@
-export const Landing: React.FunctionComponent = () => {
-    return <h1 className="text-3xl text-sky-200 bg-gray-800">Let's create some quizzes &#129504;</h1>;
-}

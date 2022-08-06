@@ -1,38 +1,45 @@
 import {Link} from "./styled-components";
 import {useAuthContext} from "../features/Auth/Auth.context";
 
-const enrichedMenu = [
+const LoggedMenu = [
     {
-        name: "Home",
-        to: "/dashboard"
+        name: "Quizzes",
+        to: "/quizzes",
+        type: "page"
     },
     {
-        name: "My quizzes",
-        to: "/quizzes"
+        name: "Profile",
+        to: "/me",
+        type: "page"
+    },
+];
+
+const AnonymousMenu = [
+    {
+        name: "Quizzes",
+        to: "/general-quizzes",
+        type: "page"
     },
     {
-        name: "Create new quiz",
-        to: "/quizzes/new"
+        name: "Profile",
+        to: "/me",
+        type: "page"
     },
-    {
-        name: "Legal stuff",
-        to: "/legal"
-    },
-]
+];
 
 export const Menu: React.FunctionComponent<{}> = () => {
     const { logout, user } = useAuthContext();
 
     const isUserLoggedIn = user !== null;
-    const menuData = isUserLoggedIn ? enrichedMenu : [];
+    const menuData = isUserLoggedIn ? LoggedMenu : AnonymousMenu;
 
     return (
-        <nav className="bg-slate-900 w-full">
-            <ul  className="flex text-orange-600 gap-2 w-7/12 m-auto">
+        <nav className={`w-full p-7 ${isUserLoggedIn && 'bg-tiffany-blue'}`}>
+            <ul className={`flex ${isUserLoggedIn ? 'text-white' : 'text-steel-gray'} gap-9 justify-end pr-20`}>
                 {menuData?.map((item, index) => (
-                    <li key={`${item.to}-${index}`} className="ml-auto">
+                    <li key={`${item.to}-${index}`}>
                         <Link
-                            className="inline-block hover:underline p-2"
+                            className="inline-block p-2"
                             to={item.to}
                         >
                             {item.name}
@@ -41,36 +48,27 @@ export const Menu: React.FunctionComponent<{}> = () => {
                     )
                 )}
                 {isUserLoggedIn ? (
-                    <li className="ml-auto">
-                        Hey There <span className="text-sky-300">{user.fName}</span>  &#128583;
+                    <li>
                         <Link
-                            className="inline-block hover:underline p-2"
+                            className="inline-block p-2"
                             to="/"
                             onClick={logout}
                         >
-                            Logout
+                            Log Out
                         </Link>
                     </li>
                 ) : (
-                    <>
-                        <li className="ml-auto">
-                            <Link
-                                className="inline-block hover:underline p-2"
-                                to="/"
-                            >
-                                Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                className="inline-block hover:underline p-2"
-                                to="/register"
-                            >
-                                Register
-                            </Link>
-                        </li>
-                    </>
-                )}
+                    <li>
+                        <Link
+                            className="inline-block p-2"
+                            to="/"
+
+                        >
+                            Log In
+                        </Link>
+                    </li>
+                    )}
+
             </ul>
         </nav>
     )
